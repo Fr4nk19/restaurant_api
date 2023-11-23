@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_company');
+            $table->unsignedBigInteger('id_company');
             $table->string('address');
             $table->string('phone');
             $table->timestamps();
 
-            $table->foreign('id_company')->references('id')->on('company')->onDelete('cascade');
+            $table->foreign('id_company')->references('id')->on('companies')->onDelete('cascade');
         });
     }
 

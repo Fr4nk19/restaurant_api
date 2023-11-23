@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tables', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_zone');
+            $table->unsignedBigInteger('id_zone');
             $table->string('name');
             $table->timestamps();
 

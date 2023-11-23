@@ -10,6 +10,6 @@ class Branches extends Model
     use HasFactory;
 
     public function company(){
-        return $this->belongsTo(Company::class, 'id_company');
+        return $this->belongsTo(Company::class);
     }
 }
