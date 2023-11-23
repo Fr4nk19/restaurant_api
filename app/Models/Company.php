@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     use HasFactory;
+
+    public function branches()
+    {
+        return $this->hasMany(Branches::class, 'id_company');
+    }
 }
