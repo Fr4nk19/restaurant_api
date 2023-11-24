@@ -40,6 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin_users',
+        ],
+        'company_admin' => [
+            'driver' => 'session',
+            'provider' => 'admin_companies',
+        ],
+        'restaurant' => [
+            'driver' => 'session',
+            'provider' => 'restaurant_users',
+        ],
     ],
 
     /*
@@ -65,6 +77,18 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'admin_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\AdminUsers::class,
+        ],
+        'admin_companies' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\AdminCompany::class,
+        ],
+        'restaurant_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\RestaurantUser::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -94,6 +118,25 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        
+        'admin_users' => [
+            'provider' => 'admin_users',
+            'table' => 'admin_password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'admin_companies' => [
+            'provider' => 'admin_companies',
+            'table' => 'admin_companies_password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'restaurant_users' => [
+            'provider' => 'restaurant_users',
+            'table' => 'restaurant_password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],

@@ -8,15 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class AdminUsers extends Authenticatable
+class AdminCompany extends Authenticatable
 {
     use HasFactory, HasApiTokens, Notifiable;
 
+
     protected $fillable = [
-        'full_name', 'email', 'password'
+        'name', 'email', 'password',
     ];
 
     protected $hidden = [
-        'password', 'remember_token'
+        'password', 'remember_token',
     ];
+
+    public function company (){
+        return $this->belongsTo(Company::class);
+    }
 }

@@ -11,19 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('restaurant_users', function (Blueprint $table) {
+        Schema::create('admin_companies', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_branch');
-            $table->unsignedBigInteger('id_role');
+            $table->unsignedBigInteger('id_company');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password', 255);
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('id_branch')->references('id')->on('branches')->onDelete('cascade');
-            $table->foreign('id_role')->references('id')->on('roles')->onDelete('cascade');
-
+            $table->foreign('id_company')->references('id')->on('companies')->onDelete('cascade');
         });
     }
 
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('restaurant_users');
+        Schema::dropIfExists('admin_companies');
     }
 };

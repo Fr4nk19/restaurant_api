@@ -9,8 +9,14 @@ class Company extends Model
 {
     use HasFactory;
 
+
     public function branches()
     {
         return $this->hasMany(Branches::class);
+    }
+
+    public function adminUsers()
+    {
+        return $this->hasMany(AdminCompany::class);
     }
 }
